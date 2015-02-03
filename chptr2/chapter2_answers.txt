@@ -1,1 +1,82 @@
 # Answers for chapter2
+
+> To initialize a repository in an Existing Directory,
+    Type: git init
+
+> To cloning an existing Repository 
+    Type: git clone https://github.com/libgit2/libgit2
+
+> If you want to clone the repository into a directory named something you like,
+    Type: git clone <url> <name_of_cloned_repository>
+
+> To check the status of you file,
+    Type: git status
+
+> To track new files,
+    Type: git add <file or directory>
+
+> To see your changes in mor compact way,
+    Type: git status -s
+
+> To Ignore files,
+    Type: cat .gitignore
+
+> To see what you've changed but not yet staged,
+    Type: git diff
+
+> To see waht you've staged that will go into your next commit,
+    Type: git diff --staged
+
+> To see waht you've staged so far,
+    Type: git diff --cached
+
+> To commit changes,
+    Type: git commit
+
+> To type a commit message inline:
+    Type: git commit -m "<commit_message>"
+
+> To skip the staging area to makes Git automatically stage every file that is
+  already tracked before doing the commit,
+    Type: git commit -a -m '<commit_message>'
+
+> To remove a file from Git,
+    Type: rm <file_name/folder>
+
+> To stage the file removal,
+    Type: git rm <file_name/folder>
+
+> To keep file in your working tree but remove oit from your staging area,
+    Type: git rm --c cached README
+
+> To pass files, directories, and file-glob patterns to the remove command,
+    Type: git rm log/\*.log
+
+> To move a file and rename it,
+    Type: git mv file_from file_to
+
+> To view commit history,
+    Type: git log
+
+> To show the difference introduced in each commit (-p) and to limit the output to only a specific entry,
+    Type: git log -p -<num_of_entry>
+
+> If you want to see abbreviated stats for each commit,
+    Type: git log --stat
+
+> To print each commit on a single line,
+    Type: git log --pretty=oneline
+     - this "--pretty" is an option that changes the log output format other than the default.
+
+> To allow specify your own log output format,
+    Type: git log --pretty=format: "<option>"
+    
+    These are the list of options
+
+    1.) %H   => Commit hash
+    2.) %h   => Abbreviated commit hash
+    3.) %T   => Tree hash
+    4.) %t   => Abbreviated tree hash
+    5.) %P   => Parent hashes
+    6.) %p   => Abbreviated parent hashes
+    7.) an
