@@ -1,1 +1,42 @@
 # Answers for chapter1
+
+>To install git in linux:
+    Type: apt-get install git
+
+>In order to get and set configuration variables that control all aspects of how git looks and operates:
+    Type: git config
+    
+    3 Different places you can restore variables
+
+    1.) "/etc/gitconfig"
+           - This file contains values for every user on the system and all their repositories. To read and writes from file specifically. You pass the option "--system" to "git config"
+
+    2.) "~/.gitconfig" or "~/,.config/git/config"
+           - This file is specific to user. To make Git read and write to this file specifically, Pass the option, "--global"
+
+    3.) "config"
+           - A file in the git directory that is ".git/config"
+
+> To set user name:
+    Type: git config --global user.name <your_username>
+
+> To set your e-mail address:
+    Type: git config --global user.email <your_email@exmaple.com>
+
+> To set your favorite text editor as a default:
+    Type: git config --global core.editor emacs
+
+> To check your settings:
+    Type: git config --list
+
+> To check what Git thinks a specific key's value:
+    Type: git config <key>
+
+> If you need help while using Git, there are three ways to get the manual page help for any of this Git commands:
+
+    >>> git help <verb>
+    >>> git <verb> --help
+    >>> man git-<verb>
+
+> You can get manual page help for the config command by:
+     Type: git help config
