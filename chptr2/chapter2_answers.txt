@@ -73,10 +73,98 @@
     
     These are the list of options
 
-    1.) %H   => Commit hash
-    2.) %h   => Abbreviated commit hash
-    3.) %T   => Tree hash
-    4.) %t   => Abbreviated tree hash
-    5.) %P   => Parent hashes
-    6.) %p   => Abbreviated parent hashes
-    7.) an
+    1.)  %H   => Commit hash
+    2.)  %h   => Abbreviated commit hash
+    3.)  %T   => Tree hash
+    4.)  %t   => Abbreviated tree hash
+    5.)  %P   => Parent hashes
+    6.)  %p   => Abbreviated parent hashes
+    7.)  %an  => Author name
+    8.)  %ae  => Author e-mail
+    9.)  %ad  => Author date
+    10.) %ar  => Author date, relative
+    11.) %cn  => Committer name
+    12.) %ce  => Committer email
+    13.) %cd  => Committer date
+    14.) %cr  => Commiter date, relative
+    15.) %s   => Subject
+
+> To Limit the log output, you can use time-limiting options such as 
+   --since and --until,
+   
+    Type: git log --since=2.week            #2.weeks here is getting the list of
+                                            commits made in the last 2 weeks.
+
+> To take a string and only shows the commits that introduced a change to the code that added or removed that string,
+    
+    Type: git log -Sfunction_name
+
+    #These are the other options to limit the output of git log:
+
+    1.)  -(n)               =>  show only the last n commits
+    2.)  --since, --after   =>  limit the commits to those made after the
+                                specified date.
+    3.)  --until, --before  =>  limit the commits to those made before the
+                                specified date.
+    4.)  --author           =>  Only show commits in which the author entry
+                                matches the specified string.
+    5.)  --committer        =>  Only show commits in which the committer entry
+                                matches the specified string.
+    6.)  --grep             =>  Only show commits with a commit message
+                                containing the string.
+    7.)  -S                 =>  Only show commits adding or removing code
+                                matching the string.
+
+> To undo things,
+    Type: git commit --amend
+
+> To unstage a staged file,
+    Type: git reset HEAD <file_name>
+
+> To unmodiying a modified file,
+    Type: git checkout -- <file_name>
+
+> To lists the shortnames of each remote han:dle you've specified,
+    Type: git remote
+
+> To show url's that Git has been restored for the shortname to be used when reading and writing to that remote,
+    Type: git remote -v
+
+> To add a new remote Git repository as a shortname,
+    Type: git remote add <shortname> <url>
+
+> To fetch and pull data from your remote projects,
+    Type: git fetch <remote-name>
+
+> To push your master branch to your origin server,
+    Type: git push origin master
+
+> To how more information about a particular remote,
+    Type: git remote show <remote_name>
+
+> To rename remote,
+    Type: git remote rename <shortname> <newname>
+
+> To remove a remote,
+    Type: git remote rm <remote-name>
+
+> To list tags,
+    Type: git tag
+
+> To create tag,
+    Type: git tag <name_of_tag>
+
+> To create annotated tag,
+    Type: git tag -a <name_of_tag> -m 'message'
+
+> To create lightweight tags,
+    Type: git tag <name_of_tag>-lw
+
+> To tag a commit,
+    Type: git tag -a <name_of_tag> <ASCII code_of_commit>
+
+> To share tags,
+    Type: git push origin <tagname>
+
+> To check out tags,
+    Type: git checkout -b version2 <name_of_tag>
