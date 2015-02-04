@@ -1,1 +1,46 @@
 # Answers for chapter 3
+
+> To create a new branch,
+    Type: git branch <branchname>
+
+> To switch branches,
+    Type: git checkout <branchname>
+
+> To print out the history of your commits,
+    Type: git log --oneline --decorate --graph --all
+
+> To create a new branch with a auto switch,
+    Type: git checkout -b <branchname>
+
+> To merge branches,
+    Type: git merge <branchname>
+
+> To show created branches,
+    Type: git branch
+
+> To see the last commit of each branch,
+    Type: git branch -v
+
+> To see branches that are merged into the branch you're on,
+    Type: git branch --merged
+
+> To see branches that contain work you haven't merged in,
+    Type: git branch --no-merged
+
+> To delete branch,
+    Type: git branch -d testing
+
+> To share a branch that you want to work on with others,
+    Type: git push origin serverfix
+
+> To track branches,
+    Type: git checkout --track <remotename>/<branch>
+
+> To set up a local branch with a different name than the remote branch,
+    Type: git checkout -b <wantedname> <remotename>/<branch>
+
+> To delete remote branches,
+    Type: git push origin --delete <branchname>
+
+> To take all the changes that were commited on one branch and replay them on another one.
+    Type: git rebase <branchname>
