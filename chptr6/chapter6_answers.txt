@@ -1,1 +1,96 @@
-# Answers for chapter6
+# Answers for chapter
+
+> To setup account and configuration,
+    First: Sign up @ https://github.com
+
+> To access ssh,
+    First: Generate your ssh key,
+        1.) Type: cd ~/.ssh
+        2.) Type: ssh-keygen
+        3.) Enter a file in which you want to save your key
+        4.) Enter you passphrase and cofirm it.
+    Second: To check your generated key,
+       Type: cat ~/.ssh/id_rsa.pub
+
+    Third:  Log-in your account in www.github.com
+    Fourth: Go to your account settings, click ssh key and click add ssh
+    Fifth: Create a title of your key, copy your generated key and paste it on the key space provided. Then, add key.
+
+> If you wish to replace the avatar,
+    First: Go to your "Profile" tab (above the SSH Keys tab) and click "Upload new picture".
+
+> If you use multiple email addresses in your commits and you want GitHub to link them up properly, you need to add all the email addresses you have used to the Emails section of the admin section.
+
+> If you want to secure your account more,
+    You can find the Two-factor Authentication setup under the Security tab of your Account settings.
+
+  Then, If you click on the “Set up two-factor authentication” button, it will take you to a configuration page where you can choose to use a phone app to generate your secondary code (a “time based one-time password”), or you can have GitHub send you a code via SMS each time you need to log in.
+
+> If you want to contribute to an existing project to which you don’t have push access, you can “fork” the project.
+
+> The GitHub Flow
+
+    1. Create a topic branch from master.
+    2. Make some commits to improve the project.
+    3. Push this branch to your GitHub project.
+    4. Open a Pull Request on GitHub.
+    5. Discuss, and optionally continue committing.
+    6. The project owner merges or closes the Pull Request.
+
+> To slow down the blink rate and improve the program,
+
+    First, we click the Fork button as mentioned earlier to get our own copy of the project. Then, We will clone it locally, create a topic branch, make the code change and finally push that change back up to GitHub.By typing:
+
+        #Clone our fork of the project locally
+    1.) git clone https://github.com/tonychacon/blink
+    2.) cd blink
+
+        #Create a descriptive topic branch
+    3.) git checkout -b slow-blink
+
+        #Make our change to the code
+    4.) sed -i '' 's/1000/3000/' blink.ino
+
+        #Check that the change is good
+    5.) git diff --word-diff
+
+        #Commit our change to the topic branch
+    6.) git commit -a -m 'three seconds is better'
+
+        #Push our new topic branch back up to our GitHub fork
+    7.) git push origin slow-blink
+
+> If you want to merge in the target branch to make your Pull Request mergeable, you would add the original repository as a new remote, fetch from it, merge the main branch of that repository into your topic branch, fix any issues and finally push it back up to the same branch you opened the Pull Request on. By typing,
+
+        #Add the original repository as a remote named “upstream”
+    1.) git remote add upstream https://github.com/schacon/blink
+
+        #Fetch the newest work from that remote
+    2.) git fetch upstream
+
+        #Merge the main branch into your topic branch
+    3.) git merge upstream/master
+
+        #Fix the conflict that occurred
+    4.) vim blink.ino
+    5.) git add blink.ino
+    6.) git commit
+
+        #Push back up to the same topic branch
+    7.) git push origin slow-blink
+
+> To create new repository,
+    Start by clicking the “New repository” button on the right-hand side of the dashboard, or from the + button in the top toolbar next to your username.
+
+> If you’re working with other people who you want to give commit access to, you need to add them as “collaborators”.  add them to your project. Doing so will give them “push” access, which means they have both read and write access to the project and Git repository.
+
+> If you’re dealing with a lot of Pull Requests and don’t want to add a bunch of remotes or do one time pulls every time, we’re going to use a low-level command (often referred to as a “plumbing” command, which we’ll read about more in “Plumbing and Porcelain”) called ls-remote. This command is generally not used in day-to-day Git operations but it’s useful to show us what references are present on the server.
+
+> To change the default brand,
+    you can change that in your repository’s settings page under the “Options” tab.
+
+> To manage your Teams, you can click on the Teams sidebar on the right hand side of the page. This will bring you to a page you can use to add members to the team, add repositories to the team or manage the settings and access control levels for the team. 
+
+> If you need something more specific or you want to integrate with a service or site that is not included in this list, you can instead use the more generic hooks system. GitHub repository hooks are pretty simple. You specify a URL and GitHub will post an HTTP payload to that URL on any event you want. To enable a hook, you click the “Add webhook” button on the webhook confiuration.
+
+> if you want to do an action on the website such as comment on an Issue or Pull Request or if you want to view or interact with private content, you’ll need to authenticate. You can use basic authentication with just your username and password. 
