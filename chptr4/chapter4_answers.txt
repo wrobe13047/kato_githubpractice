@@ -1,1 +1,112 @@
 # Answers for chptr4
+
+> If you have a shared mounted filesystem, then you can clone, push to, and pull from a local file-based repository. To this simply,
+    Typing: git clone /opt/git/project.git
+    or
+    Typing: git clone file:///opt/git/project.git
+
+> To add a local repository to an existing Git project,
+   Type: git remote add local_proj /opt/git/project.git
+
+> To allow read access to your repository over HTTP,
+   Type: cd /var/www/htdocs/
+   then: git clone --bare /path/to/git_project gitproject.git
+   then: cd gitproject.git
+   then: mv hooks/post-update.sample hooks/post-update
+   then: chmod a+x hooks/post-update
+
+> To clone a Git repository over SSH,
+   Type: git clone ssh://user@server/project.git
+   or
+   Type: git clone user@server:project.git
+
+> To initially set up any Git server, you have to export an existing repository into a new bare repository – a repository that doesn’t contain a working directory,
+   Type: git clone --bare my_project my_project.git
+
+> Assuming that /opt/git exists on that server, you can set up your new repository by copying your bare repository over by,
+   Typing: scp -r your_repositoryname.git user@git.example.com:/opt/git
+   then:   git clone user@git.example.com:/opt/git/your_repositoryname.git
+   then:   ssh user@git.example.com
+   then:   cd /opt/git/your_repositoryname.git
+   then:   git init --bare --shared
+
+> To generate SSH public key,
+   #Create a directory
+   1. mkdir ~/.ssh
+   2. cd ~/.ssh
+   #Then generate key-gen
+   3. ssh-keygen
+   # To check keygen,
+   4. cat ~/.ssh/id_rsa.pub
+
+> To set-up the server,
+   First, First, you create a git user and a .ssh directory for that user.
+   Steps:
+   1. sudo adduser git
+   2. su git
+   3. cd
+   4. mkdir .ssh ^^ chmod 700 .ssh
+   5. touch .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
+
+   Second, add some developer SSH public key to the authorized file for the git user.Then append them to the git user's authorized_keys in its .ssh directory:    To append,
+         Type: cat /tmp/id_rsa.<name_youwanttoappend>.pub >> ~/.ssh/authorized_keys
+
+   Third, set up an empty repository for them by running git init with the --bare option, which initializes the repository without a working directory. To do this,
+     type: cd /opt/git
+     then: mkdir your_repository.git
+     then: cd your_repository.git
+     then: git init --bare
+     
+> If you’re running it internally, and you set up DNS for gitserver to point to that server, then you can use the commands. to do this:
+
+     # on member's computer
+     First: cd your_repositoryname
+     then:  git init
+     then:  git add
+     then:  git commit -m 'commit_message'
+     then: git remote add origin git@gitserver:/opt/git/your_repositoryname.git     then: git push origin master
+
+     On this part,the others can clone it down and push changes back up just as easily. To do this,
+     
+     First: git clone git@gitserver:/opt/git/your_repository.git
+     then:  cd your_repositoryname
+     then:  vim README
+     then:  git commit -am 'fix for the README file'
+     then:  git push origin master
+
+> If you set this as your git user’s login shell, then the git user can’t have normal shell access to your server. To do this,
+    Type: cat /etc/shells
+    then: which git-shell
+    then: sudo vim /etc/shells
+   #On this part, you can edit the shell for a user. To do this,
+    Type: sudo chsh git
+
+> To set up a daemon serving repositories over the “Git” protocol.
+    Type: git daemon --reuseaddr --base-path=/opt/git/ /opt/git/
+
+> To get it running your Git daemon without having to reboot,
+    Type: initial start local-git-daemon
+
+> To tell Git which repositories to allow unauthenticated Git server-based access to,
+   Type: cd /path/to/your_repositoryname.git
+   then: touch git-daemon-export-ok
+
+> If you don’t have Apache setup,
+    Type: sudo apt-get isntall apache2 apache2-utils
+    then: a2emod cgi alias env
+
+> If you want to check out what GitWeb would look like for your project,
+    Type: git instaweb --httpd=webrick
+
+> If your dont and you want to shut down the server,
+    Type: git instaweb --httpd=webrick --stop
+
+> If you want to run the web interface on a server all the time for your team or for an open source project you’re hosting,
+    Type: git clone git://git.kernel.org/pub/scm/git/git.git
+    then: cd git/
+    then: make GITWEB_PROJECTROOT = "/opt/git" prefix = /usr gitweb
+    then: sudo cp -Rf gitweb /var/www/
+
+
+
+	   
